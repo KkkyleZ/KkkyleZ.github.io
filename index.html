@@ -25,7 +25,6 @@
   --text:#1b1e23;--muted:#5c636e;
   --line:rgba(0,0,0,.12);--line-strong:rgba(0,0,0,.22);
   --accent:#76b900;--accent-text:#466c27;--accent-soft:rgba(118,185,0,.14);
-  --stage-bg:#0f0e0d;--stage-text:#ebe7df;--stage-muted:#aea99f;--stage-line:rgba(255,246,230,.17);
   --shadow:0 10px 28px rgba(0,0,0,.10);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
   --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -38,7 +37,7 @@
   --text:#ebe7df;--muted:#aea99f;
   --line:rgba(255,246,230,.12);--line-strong:rgba(255,246,230,.24);
   --accent-text:#9ed13a;--accent-soft:rgba(118,185,0,.18);
-  --stage-bg:#171614;--shadow:none;
+  --shadow:none;
 }}
 
 *{box-sizing:border-box}
@@ -89,44 +88,23 @@ h2{margin:0 0 1.25rem;font:600 clamp(1.55rem,2.3vw,2.05rem)/1.2 var(--serif);let
 .older[open] summary::after{content:"\2212"}
 @media (max-width:560px){.news li{grid-template-columns:1fr}}
 
-/* publications: shared pieces, coloured per surface */
-.stage,.rows{--t:var(--text);--m:var(--muted);--l:var(--line-strong);--a:var(--accent-text)}
-.stage{--t:var(--stage-text);--m:var(--stage-muted);--l:var(--stage-line);--a:var(--accent)}
-.meta{margin:0;min-height:1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font:500 .8rem/1.5 var(--mono);letter-spacing:.05em;color:var(--m)}
-.badge{padding:0 .55rem;border:1px solid currentColor;border-radius:999px;color:var(--a);font:500 .8rem/1.55 var(--mono);letter-spacing:.06em;text-transform:uppercase}
-h3{margin:0;font:600 1.18rem/1.3 var(--serif);color:var(--t)}
-.auth,.desc{margin:0;font-size:.9rem;line-height:1.55;color:var(--m)}
-.auth b{font-weight:600;color:var(--t)}
-.plinks{display:flex;flex-wrap:wrap;gap:0 1.25rem;margin:0;font:500 .8rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
-.plinks a{padding:.7rem 0;color:var(--t);text-decoration-color:var(--l)}
-.plinks a:hover{color:var(--a);text-decoration-color:currentColor}
-
-/* dark stage: the three world-model papers */
-.stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.25rem 1.75rem;padding:clamp(1.1rem,2.6vw,1.9rem);border-radius:20px;background:var(--stage-bg);color:var(--stage-muted);box-shadow:inset 0 0 0 1px rgba(255,246,230,.06),0 28px 70px -30px rgba(15,14,13,.55)}
-.work{display:flex;flex-direction:column;gap:.6rem;min-width:0}
-.frame{position:relative;aspect-ratio:16/9;margin-bottom:.35rem;border-radius:10px;overflow:hidden;background:#090807;box-shadow:inset 0 0 0 1px var(--stage-line)}
-.frame video{display:block;width:100%;height:100%;object-fit:cover}
-.tag{position:absolute;top:.6rem;right:.6rem;padding:.3rem .7rem;border-radius:999px;background:rgba(9,8,7,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;font:600 1.02rem/1.2 var(--serif)}
-.work .plinks{margin-top:auto}
-@media (max-width:900px){
-  .stage{grid-template-columns:1fr}
-  .work{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:.5rem 1.5rem;align-items:start}
-  .work .frame{grid-row:1 / span 6;margin:0}
-  .work > :not(.frame){grid-column:2}
-}
-@media (max-width:620px){
-  .work{display:flex}
-  .work .frame{margin-bottom:.35rem}
-}
-
-/* light rows: the other papers */
-.rows{margin-top:clamp(2.25rem,4vw,3.25rem)}
+/* publications */
 .row{display:grid;grid-template-columns:280px minmax(0,1fr);gap:1rem 2.25rem;align-items:start;padding:1.75rem 0;border-top:1px solid var(--line)}
 .row:last-child{border-bottom:1px solid var(--line)}
+.frame{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#090807;box-shadow:var(--shadow)}
+.frame video{display:block;width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:.5rem;right:.5rem;padding:.25rem .65rem;border-radius:999px;background:rgba(9,8,7,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;font:600 .95rem/1.2 var(--serif)}
 .plate{padding:.5rem;border-radius:10px;background:#fff;box-shadow:var(--shadow)}
 .plate img{display:block;width:100%;height:auto}
 .row .body{display:flex;flex-direction:column;gap:.55rem;min-width:0}
-@media (max-width:700px){.row{grid-template-columns:1fr}.plate{max-width:420px}}
+.meta{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font:500 .8rem/1.5 var(--mono);letter-spacing:.05em;color:var(--muted)}
+.badge{padding:0 .55rem;border:1px solid currentColor;border-radius:999px;color:var(--accent-text);font:500 .8rem/1.55 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+h3{margin:0;font:600 1.18rem/1.3 var(--serif);color:var(--text)}
+.auth,.desc{margin:0;font-size:.9rem;line-height:1.55;color:var(--muted)}
+.auth b{font-weight:600;color:var(--text)}
+.plinks{display:flex;flex-wrap:wrap;gap:0 1.25rem;margin:0;font:500 .8rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.plinks a{padding:.7rem 0;color:var(--text)}
+@media (max-width:700px){.row{grid-template-columns:1fr}.plate,.frame{max-width:420px}}
 
 footer{margin-top:clamp(2rem,4vw,3rem);background:var(--bg-2);border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;padding-top:1.75rem;padding-bottom:2.25rem;font:400 .8rem/1.6 var(--mono);color:var(--muted)}
@@ -177,45 +155,31 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 </details>
 </section>
 
-<section id="publications">
-<div class="wrap">
-<p class="kicker">Publications</p>
-<h2>Video world models</h2>
+<section id="publications" class="wrap">
+<h2>Publications</h2>
 <p class="legend">* core contributor · † co-first author · ‡ project lead</p>
 
-<div class="stage">
-
-<article class="work">
+<article class="row">
 <div class="frame"><video muted loop playsinline preload="none" poster="images/dreamzero_poster.jpg" aria-label="DreamZero robots performing unseen tasks"><source src="images/dreamzero.mp4" type="video/mp4"></video><span class="tag">DreamZero</span></div>
+<div class="body">
 <p class="meta">CoRL 2026 <span class="badge">Oral</span></p>
 <h3>World Action Models are Zero-shot Policies</h3>
 <p class="auth">Seonghyeon Ye‡, Yunhao Ge*, <b>Kaiyuan Zheng*</b>, Shenyuan Gao*, Sihyun Yu*, George Kurian*, Suneel Indupuru*, You Liang Tan*, … Yuke Zhu‡, Linxi Fan‡, Joel Jang‡</p>
 <p class="desc">A 14B world action model that predicts video and actions together, and controls robots zero-shot on unseen tasks in real time.</p>
 <p class="plinks"><a href="https://arxiv.org/abs/2602.15922">Paper</a><a href="https://dreamzero0.github.io">Project</a><a href="https://github.com/dreamzero0/dreamzero">Code</a></p>
+</div>
 </article>
 
-<article class="work">
+<article class="row">
 <div class="frame"><video muted loop playsinline preload="none" poster="images/dreamdojo_poster.jpg" aria-label="DreamDojo world model rollouts under action control"><source src="images/dreamdojo.mp4" type="video/mp4"></video><span class="tag">DreamDojo</span></div>
+<div class="body">
 <p class="meta">ICML 2026 <span class="badge">Spotlight</span></p>
 <h3>DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos</h3>
 <p class="auth">Shenyuan Gao†, William Liang†, <b>Kaiyuan Zheng*</b>, Ayaan Malik*, Seonghyeon Ye, Sihyun Yu, … Yuke Zhu‡, Joel Jang‡, Linxi Fan‡</p>
 <p class="desc">A world model pretrained on 44k hours of egocentric human video that simulates dexterous, contact-rich robot interaction in real time.</p>
 <p class="plinks"><a href="https://arxiv.org/abs/2602.06949">Paper</a><a href="https://dreamdojo-world.github.io">Project</a><a href="https://github.com/NVIDIA/DreamDojo">Code</a></p>
-</article>
-
-<article class="work">
-<div class="frame"><video muted loop playsinline preload="none" poster="images/dreamgen_poster.jpg" aria-label="DreamGen generated robot videos from text prompts"><source src="images/dreamgen.mp4" type="video/mp4"></video><span class="tag">DreamGen</span></div>
-<p class="meta">CoRL 2025</p>
-<h3>DreamGen: Unlocking Generalization in Robot Learning through Video World Models</h3>
-<p class="auth">Joel Jang, Seonghyeon Ye, Zongyu Lin, Jiannan Xiang, Johan Bjorck, Yu Fang, Fengyuan Hu, … <b>Kaiyuan Zheng</b>, Ruijie Zheng, … Yuke Zhu, Linxi Fan</p>
-<p class="desc">Robot policies trained on synthetic trajectories from video world models, so they generalize to new behaviors and environments.</p>
-<p class="plinks"><a href="https://arxiv.org/abs/2505.12705">Paper</a><a href="https://research.nvidia.com/labs/gear/dreamgen">Project</a></p>
-</article>
-
 </div>
-
-<div class="rows">
-<h2>Preference alignment and data synthesis</h2>
+</article>
 
 <article class="row">
 <div class="plate"><img src="images/grape.jpg" alt="GRAPE pipeline figure" width="720" height="354" loading="lazy"></div>
@@ -225,6 +189,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <p class="auth">Zijian Zhang†, <b>Kaiyuan Zheng†</b>, Zhaorun Chen†, Joel Jang, Yi Li, Siwei Han, Chaoqi Wang, Mingyu Ding, Dieter Fox, Huaxiu Yao</p>
 <p class="desc">Aligns vision-language-action policies with trajectory-wise preference optimization, improving generalization and supporting goals such as safety and efficiency.</p>
 <p class="plinks"><a href="https://arxiv.org/abs/2411.19309">Paper</a><a href="https://grape-vla.github.io">Project</a><a href="https://github.com/aiming-lab/grape">Code</a></p>
+</div>
+</article>
+
+<article class="row">
+<div class="frame"><video muted loop playsinline preload="none" poster="images/dreamgen_poster.jpg" aria-label="DreamGen generated robot videos from text prompts"><source src="images/dreamgen.mp4" type="video/mp4"></video><span class="tag">DreamGen</span></div>
+<div class="body">
+<p class="meta">CoRL 2025</p>
+<h3>DreamGen: Unlocking Generalization in Robot Learning through Video World Models</h3>
+<p class="auth">Joel Jang, Seonghyeon Ye, Zongyu Lin, Jiannan Xiang, Johan Bjorck, Yu Fang, Fengyuan Hu, … <b>Kaiyuan Zheng</b>, Ruijie Zheng, … Yuke Zhu, Linxi Fan</p>
+<p class="desc">Robot policies trained on synthetic trajectories from video world models, so they generalize to new behaviors and environments.</p>
+<p class="plinks"><a href="https://arxiv.org/abs/2505.12705">Paper</a><a href="https://research.nvidia.com/labs/gear/dreamgen">Project</a></p>
 </div>
 </article>
 
@@ -250,8 +225,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 </div>
 </article>
 
-</div>
-</div>
 </section>
 </main>
 
