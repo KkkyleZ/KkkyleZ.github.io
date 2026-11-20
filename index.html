@@ -4,165 +4,270 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kaiyuan Zheng</title>
+<meta name="description" content="Kaiyuan Zheng, PhD student at the University of Washington and NVIDIA GEAR Lab. Video world models for generalist robots.">
 <meta property="og:title" content="Kaiyuan Zheng">
-<meta property="og:description" content="PhD student at the University of Washington and NVIDIA GEAR Lab. Video world models and robot learning.">
+<meta property="og:description" content="PhD student at the University of Washington and NVIDIA GEAR Lab. Video world models for generalist robots.">
 <meta property="og:image" content="https://kkkylez.github.io/images/kaiyuan.jpg">
 <meta property="og:url" content="https://kkkylez.github.io/">
-<meta name="description" content="Kaiyuan Zheng, PhD student in Electrical & Computer Engineering at the University of Washington. Video world models and robot learning.">
+<meta name="theme-color" content="#f2ece6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0e0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1e23'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='38' fill='%2376b900'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/inter-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/newsreader-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--bg:#fff;--fg:#111;--muted:#5a5a5a;--line:#d9d9d9;--sunk:#f6f6f6;--accent:#2f6b00}
-@media (prefers-color-scheme:dark){:root{--bg:#121212;--fg:#ececec;--muted:#a8a8a8;--line:#333;--sunk:#1a1a1a;--accent:#8fd14f}}
+@font-face{font-family:"Inter";font-weight:400 700;font-display:swap;src:url("fonts/inter-normal-400-700-latin.woff2") format("woff2")}
+@font-face{font-family:"Newsreader";font-weight:400 700;font-display:swap;src:url("fonts/newsreader-normal-400-700-latin.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url("fonts/ibm-plex-mono-normal-400-latin.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url("fonts/ibm-plex-mono-normal-500-latin.woff2") format("woff2")}
+
+:root{
+  --bg:#f2ece6;--bg-2:#e9e2db;
+  --text:#1b1e23;--muted:#5c636e;
+  --line:rgba(0,0,0,.12);--line-strong:rgba(0,0,0,.22);
+  --accent:#76b900;--accent-text:#466c27;--accent-soft:rgba(118,185,0,.14);
+  --stage-bg:#0f0e0d;--stage-text:#ebe7df;--stage-muted:#aea99f;--stage-line:rgba(255,246,230,.17);
+  --shadow:0 10px 28px rgba(0,0,0,.10);
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono","SF Mono",ui-monospace,Menlo,monospace;
+  --max:1100px;--gutter:2rem;
+}
+@media (max-width:640px){:root{--gutter:1.25rem}}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f0e0d;--bg-2:#171614;
+  --text:#ebe7df;--muted:#aea99f;
+  --line:rgba(255,246,230,.12);--line-strong:rgba(255,246,230,.24);
+  --accent-text:#9ed13a;--accent-soft:rgba(118,185,0,.18);
+  --stage-bg:#171614;--shadow:none;
+}}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-a{color:inherit;text-underline-offset:3px}a:hover{color:var(--accent)}
-.wrap{max-width:960px;margin:0 auto;padding:0 24px}
-header{border-bottom:1px solid var(--line)}
-header .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;min-height:56px;padding-top:12px;padding-bottom:12px}
-header strong{font-size:17px}
-nav{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:15px;font-weight:700}
-nav a{text-decoration:none}
-section{padding:40px 0 8px}
-h1{margin:0 0 6px;font-size:40px;line-height:1.15;letter-spacing:-.01em}
-h2{margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:24px}
-.about{display:flex;flex-wrap:wrap-reverse;gap:24px 48px;align-items:center}
-.bio{flex:1 1 520px;min-width:0}
-.photo{flex:0 0 180px;width:180px;height:180px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
-.sub{color:var(--muted);font-size:17px;margin:0 0 14px}
-.links{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:15px;font-weight:700;margin-top:14px}
-.links a{text-decoration:none}.links a:hover{text-decoration:underline}
-.news{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px}
-.news li{display:flex;flex-wrap:wrap;gap:2px 16px}
-.news .d{flex:0 0 112px;font-weight:700}
-.news .t{flex:1 1 400px;min-width:0}
-.note{margin:0 0 24px;font-size:14px;color:var(--muted)}
-.pubs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:32px}
-.pubs li{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-start}
-.fig{flex:0 0 220px;max-width:100%;aspect-ratio:16/10;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
-.fig img{display:block;width:100%;height:100%;object-fit:contain}
-.fig video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
-.fig.wide{aspect-ratio:16/9}
-.body{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:6px}
-.title{margin:0;font-size:17px;font-weight:700;line-height:1.4}
-.auth,.desc{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
-.auth b{color:var(--fg)}
-.venue{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;font-style:italic}
-.badge{font-style:normal;font-size:12px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:0 9px;line-height:20px}
-.plinks{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;font-weight:700}
-.plinks a{text-decoration:none}.plinks a:hover{text-decoration:underline}
-footer{margin-top:40px;border-top:1px solid var(--line);background:var(--sunk);color:var(--muted);font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;padding-top:28px;padding-bottom:36px}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--muted);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--text);text-decoration-line:underline;text-decoration-thickness:1px;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+a:hover{color:var(--accent-text);text-decoration-color:currentColor}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+[id]{scroll-margin-top:72px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:10;background:var(--bg);background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0 1.5rem;min-height:56px}
+.brand{font:600 1.15rem/1.2 var(--serif);color:var(--text);text-decoration:none;padding:.75rem 0}
+.top nav{display:flex;flex-wrap:wrap;gap:0 1.5rem}
+.top nav a{font:500 .8rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:1rem 0}
+.top nav a:hover{color:var(--text)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:2rem 4rem;align-items:start;padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:clamp(1.5rem,3vw,2.5rem)}
+.kicker{margin:0 0 .9rem;font:500 .8rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+h1{margin:0;font:600 clamp(2.6rem,6vw,4rem)/1.05 var(--serif);letter-spacing:-.015em;color:var(--text)}
+.lede{margin:.9rem 0 1.5rem;font:400 clamp(1.3rem,2.4vw,1.65rem)/1.35 var(--serif);color:var(--text)}
+.bio p{margin:0 0 1rem;max-width:41em}
+.portrait{display:block;width:220px;height:220px;border-radius:14px;object-fit:cover;box-shadow:var(--shadow)}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.6rem 0 0;padding:0;list-style:none}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border:1px solid var(--line-strong);border-radius:6px;font:500 .9rem/1 var(--sans);color:var(--text);text-decoration:none}
+.links a:hover{border-color:var(--accent);background:var(--accent-soft);color:var(--text)}
+.links a.primary{background:var(--text);border-color:var(--text);color:var(--bg)}
+.links a.primary:hover{background:var(--accent-text);border-color:var(--accent-text);color:var(--bg)}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.portrait{order:-1;width:128px;height:128px}}
+
+/* sections */
+section{padding:clamp(2rem,4vw,3.25rem) 0}
+h2{margin:0 0 1.25rem;font:600 clamp(1.55rem,2.3vw,2.05rem)/1.2 var(--serif);letter-spacing:-.01em;color:var(--text)}
+.legend{margin:-.5rem 0 1.5rem;font:400 .8rem/1.6 var(--mono);color:var(--muted)}
+
+/* news */
+.news{list-style:none;margin:0;padding:0}
+.news li{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:0 1.5rem;padding:.8rem 0;border-top:1px solid var(--line)}
+.news time{font:500 .82rem/2 var(--mono);letter-spacing:.04em;color:var(--muted)}
+.news b{font-weight:600;color:var(--text)}
+.older{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.older summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font:500 .8rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);list-style:none}
+.older summary::-webkit-details-marker{display:none}
+.older summary::after{content:"+";margin-left:.6rem;font-size:1rem}
+.older[open] summary::after{content:"\2212"}
+@media (max-width:560px){.news li{grid-template-columns:1fr}}
+
+/* publications: shared pieces, coloured per surface */
+.stage,.rows{--t:var(--text);--m:var(--muted);--l:var(--line-strong);--a:var(--accent-text)}
+.stage{--t:var(--stage-text);--m:var(--stage-muted);--l:var(--stage-line);--a:var(--accent)}
+.meta{margin:0;min-height:1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;font:500 .8rem/1.5 var(--mono);letter-spacing:.05em;color:var(--m)}
+.badge{padding:0 .55rem;border:1px solid currentColor;border-radius:999px;color:var(--a);font:500 .8rem/1.55 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+h3{margin:0;font:600 1.18rem/1.3 var(--serif);color:var(--t)}
+.auth,.desc{margin:0;font-size:.9rem;line-height:1.55;color:var(--m)}
+.auth b{font-weight:600;color:var(--t)}
+.plinks{display:flex;flex-wrap:wrap;gap:0 1.25rem;margin:0;font:500 .8rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.plinks a{padding:.7rem 0;color:var(--t);text-decoration-color:var(--l)}
+.plinks a:hover{color:var(--a);text-decoration-color:currentColor}
+
+/* dark stage: the three world-model papers */
+.stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.25rem 1.75rem;padding:clamp(1.1rem,2.6vw,1.9rem);border-radius:20px;background:var(--stage-bg);color:var(--stage-muted);box-shadow:inset 0 0 0 1px rgba(255,246,230,.06),0 28px 70px -30px rgba(15,14,13,.55)}
+.work{display:flex;flex-direction:column;gap:.6rem;min-width:0}
+.frame{position:relative;aspect-ratio:16/9;margin-bottom:.35rem;border-radius:10px;overflow:hidden;background:#090807;box-shadow:inset 0 0 0 1px var(--stage-line)}
+.frame video{display:block;width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:.6rem;right:.6rem;padding:.3rem .7rem;border-radius:999px;background:rgba(9,8,7,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;font:600 1.02rem/1.2 var(--serif)}
+.work .plinks{margin-top:auto}
+@media (max-width:900px){
+  .stage{grid-template-columns:1fr}
+  .work{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:.5rem 1.5rem;align-items:start}
+  .work .frame{grid-row:1 / span 6;margin:0}
+  .work > :not(.frame){grid-column:2}
+}
+@media (max-width:620px){
+  .work{display:flex}
+  .work .frame{margin-bottom:.35rem}
+}
+
+/* light rows: the other papers */
+.rows{margin-top:clamp(2.25rem,4vw,3.25rem)}
+.row{display:grid;grid-template-columns:280px minmax(0,1fr);gap:1rem 2.25rem;align-items:start;padding:1.75rem 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.plate{padding:.5rem;border-radius:10px;background:#fff;box-shadow:var(--shadow)}
+.plate img{display:block;width:100%;height:auto}
+.row .body{display:flex;flex-direction:column;gap:.55rem;min-width:0}
+@media (max-width:700px){.row{grid-template-columns:1fr}.plate{max-width:420px}}
+
+footer{margin-top:clamp(2rem,4vw,3rem);background:var(--bg-2);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;padding-top:1.75rem;padding-bottom:2.25rem;font:400 .8rem/1.6 var(--mono);color:var(--muted)}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-<strong>Kaiyuan Zheng</strong>
-<nav aria-label="Sections"><a href="#about">About</a><a href="#news">News</a><a href="#publications">Publications</a><a href="#contact">Contact</a></nav>
+<header class="top"><div class="wrap">
+<a class="brand" href="#about">Kaiyuan Zheng</a>
+<nav aria-label="Sections"><a href="#about">About</a><a href="#news">News</a><a href="#publications">Publications</a></nav>
 </div></header>
 
-<main class="wrap">
-<section id="about" class="about">
+<main>
+<section id="about" class="hero wrap">
 <div class="bio">
+<p class="kicker">PhD student · University of Washington · NVIDIA GEAR Lab</p>
 <h1>Kaiyuan Zheng</h1>
-<p class="sub">PhD Student, Electrical &amp; Computer Engineering, University of Washington</p>
-<p>I am a PhD student in Electrical &amp; Computer Engineering at the <a href="https://www.ece.uw.edu">University of Washington</a>, advised by <a href="https://www.ece.uw.edu/people/radha-poovendran">Radha Poovendran</a> and <a href="https://people.ece.uw.edu/bushnell">Linda Bushnell</a>. I also received my B.S. and M.S. from UW. My research focuses on machine learning and multimodal systems, especially video world models and robot learning.</p>
-<p>At the <a href="https://research.nvidia.com/labs/gear/">NVIDIA GEAR Lab</a>, I am advised by Yuke Zhu and Jim Fan, and have worked closely with Guanzhi Wang and Joel Jang on world models for generalist robots, including <a href="https://dreamzero0.github.io">DreamZero</a>, <a href="https://dreamdojo-world.github.io">DreamDojo</a> and <a href="https://research.nvidia.com/labs/gear/dreamgen">DreamGen</a>.</p>
-<div class="links">
-<a href="mailto:kaiyuan5@uw.edu">Email</a>
-<a href="https://scholar.google.com/citations?user=6kkyR1wAAAAJ">Google Scholar</a>
-<a href="https://www.linkedin.com/in/kaiyuan-zheng-94984a236/">LinkedIn</a>
-<a href="https://github.com/KkkyleZ">GitHub</a>
+<p class="lede">I work on video world models for generalist robots.</p>
+<p>I am a PhD student in Electrical &amp; Computer Engineering at the <a href="https://www.ece.uw.edu">University of Washington</a>, advised by <a href="https://www.ece.uw.edu/people/radha-poovendran">Radha Poovendran</a> and <a href="https://people.ece.uw.edu/bushnell">Linda Bushnell</a>. I also received my B.S. and M.S. from UW.</p>
+<p>I joined the <a href="https://research.nvidia.com/labs/gear/">NVIDIA GEAR Lab</a> in October 2025, where I am advised by Yuke Zhu and Jim Fan and work closely with Guanzhi Wang and Joel Jang. With the GEAR team I have worked on world models that act as robot policies (<a href="https://dreamzero0.github.io">DreamZero</a>), as simulators learned from human video (<a href="https://dreamdojo-world.github.io">DreamDojo</a>), and as generators of robot training data (<a href="https://research.nvidia.com/labs/gear/dreamgen">DreamGen</a>).</p>
+<p>I have also worked on preference alignment for vision-language-action policies (<a href="https://grape-vla.github.io">GRAPE</a>) and on synthetic data for robot and multimodal models (<a href="https://yuffish.github.io/rebot/">ReBot</a>, <a href="https://arxiv.org/abs/2504.19276">Anyprefer</a>).</p>
+<ul class="links">
+<li><a class="primary" href="mailto:kaiyuan5@uw.edu">Email</a></li>
+<li><a href="https://scholar.google.com/citations?user=6kkyR1wAAAAJ">Google Scholar</a></li>
+<li><a href="https://x.com/KkkyleZ">X</a></li>
+<li><a href="https://www.linkedin.com/in/kaiyuan-zheng-94984a236/">LinkedIn</a></li>
+<li><a href="https://github.com/KkkyleZ">GitHub</a></li>
+</ul>
 </div>
-</div>
-<img class="photo" src="images/kaiyuan.jpg" alt="Portrait of Kaiyuan Zheng" width="180" height="180">
+<img class="portrait" src="images/kaiyuan.jpg" alt="Portrait of Kaiyuan Zheng" width="220" height="220">
 </section>
 
-<section id="news">
+<section id="news" class="wrap">
 <h2>News</h2>
 <ul class="news">
-<li><span class="d">2026</span><span class="t"><a href="https://dreamzero0.github.io">DreamZero</a> is accepted to CoRL 2026 as an <b>oral</b> presentation.</span></li>
-<li><span class="d">2026</span><span class="t"><a href="https://dreamdojo-world.github.io">DreamDojo</a> is accepted to ICML 2026 as a <b>Spotlight</b>.</span></li>
-<li><time class="d" datetime="2026-02-17">Feb 17, 2026</time><span class="t">We released <a href="https://dreamzero0.github.io">DreamZero</a>, a 14B world action model for zero-shot robot control, with open weights and code.</span></li>
-<li><time class="d" datetime="2026-02-06">Feb 6, 2026</time><span class="t">We released <a href="https://dreamdojo-world.github.io">DreamDojo</a>, a generalist robot world model pretrained on 44k hours of egocentric human video.</span></li>
-<li><span class="d">2026</span><span class="t"><a href="https://grape-vla.github.io">GRAPE</a> is accepted to ICRA 2026.</span></li>
-<li><span class="d">2025</span><span class="t">DreamGen is accepted to CoRL 2025, ReBot to IROS 2025 as an <b>oral</b>, and Anyprefer to ICLR 2025.</span></li>
+<li><time datetime="2026-09">Sep 2026</time><span><a href="https://dreamzero0.github.io">DreamZero</a> is accepted to CoRL 2026 as an <b>Oral</b>.</span></li>
+<li><time datetime="2026-04">Apr 2026</time><span><a href="https://dreamdojo-world.github.io">DreamDojo</a> is accepted to ICML 2026 as a <b>Spotlight</b>.</span></li>
+<li><time datetime="2026-02">Feb 2026</time><span>We released <a href="https://dreamzero0.github.io">DreamZero</a>, a 14B world action model, and <a href="https://dreamdojo-world.github.io">DreamDojo</a>, a robot world model pretrained on 44k hours of human video.</span></li>
+<li><time datetime="2026-01">Jan 2026</time><span><a href="https://grape-vla.github.io">GRAPE</a> is accepted to ICRA 2026.</span></li>
+<li><time datetime="2025-10">Oct 2025</time><span>I joined the NVIDIA GEAR Lab.</span></li>
 </ul>
+<details class="older">
+<summary>Earlier</summary>
+<ul class="news">
+<li><time datetime="2025-08">Aug 2025</time><span><a href="https://research.nvidia.com/labs/gear/dreamgen">DreamGen</a> is accepted to CoRL 2025.</span></li>
+<li><time datetime="2025-06">Jun 2025</time><span><a href="https://yuffish.github.io/rebot/">ReBot</a> is accepted to IROS 2025 as an <b>Oral</b>.</span></li>
+<li><time datetime="2025-01">Jan 2025</time><span><a href="https://arxiv.org/abs/2504.19276">Anyprefer</a> is accepted to ICLR 2025.</span></li>
+</ul>
+</details>
 </section>
 
 <section id="publications">
-<h2>Publications</h2>
-<p class="note">* core contributor, † co-first author, ‡ project lead</p>
-<ul class="pubs">
+<div class="wrap">
+<p class="kicker">Publications</p>
+<h2>Video world models</h2>
+<p class="legend">* core contributor · † co-first author · ‡ project lead</p>
 
-<li><div class="fig wide"><video muted loop playsinline preload="none" poster="images/dreamzero_poster.jpg" aria-label="DreamZero robots performing unseen tasks"><source src="images/dreamzero.mp4" type="video/mp4"></video></div>
-<div class="body">
-<p class="title">World Action Models are Zero-shot Policies</p>
+<div class="stage">
+
+<article class="work">
+<div class="frame"><video muted loop playsinline preload="none" poster="images/dreamzero_poster.jpg" aria-label="DreamZero robots performing unseen tasks"><source src="images/dreamzero.mp4" type="video/mp4"></video><span class="tag">DreamZero</span></div>
+<p class="meta">CoRL 2026 <span class="badge">Oral</span></p>
+<h3>World Action Models are Zero-shot Policies</h3>
 <p class="auth">Seonghyeon Ye‡, Yunhao Ge*, <b>Kaiyuan Zheng*</b>, Shenyuan Gao*, Sihyun Yu*, George Kurian*, Suneel Indupuru*, You Liang Tan*, … Yuke Zhu‡, Linxi Fan‡, Joel Jang‡</p>
-<div class="venue">CoRL 2026 <span class="badge">Oral</span></div>
-<div class="plinks"><a href="https://arxiv.org/abs/2602.15922">Paper</a><a href="https://dreamzero0.github.io">Project page</a><a href="https://github.com/dreamzero0/dreamzero">Code</a></div>
-<p class="desc">DreamZero, a 14B world action model that jointly predicts video and robot actions, generalizing zero-shot to unseen tasks and environments with real-time closed-loop control.</p>
-</div></li>
+<p class="desc">A 14B world action model that predicts video and actions together, and controls robots zero-shot on unseen tasks in real time.</p>
+<p class="plinks"><a href="https://arxiv.org/abs/2602.15922">Paper</a><a href="https://dreamzero0.github.io">Project</a><a href="https://github.com/dreamzero0/dreamzero">Code</a></p>
+</article>
 
-<li><div class="fig wide"><video muted loop playsinline preload="none" poster="images/dreamdojo_poster.jpg" aria-label="DreamDojo world model rollouts under action control"><source src="images/dreamdojo.mp4" type="video/mp4"></video></div>
-<div class="body">
-<p class="title">DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos</p>
+<article class="work">
+<div class="frame"><video muted loop playsinline preload="none" poster="images/dreamdojo_poster.jpg" aria-label="DreamDojo world model rollouts under action control"><source src="images/dreamdojo.mp4" type="video/mp4"></video><span class="tag">DreamDojo</span></div>
+<p class="meta">ICML 2026 <span class="badge">Spotlight</span></p>
+<h3>DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos</h3>
 <p class="auth">Shenyuan Gao†, William Liang†, <b>Kaiyuan Zheng*</b>, Ayaan Malik*, Seonghyeon Ye, Sihyun Yu, … Yuke Zhu‡, Joel Jang‡, Linxi Fan‡</p>
-<div class="venue">ICML 2026 <span class="badge">Spotlight</span></div>
-<div class="plinks"><a href="https://arxiv.org/abs/2602.06949">Paper</a><a href="https://dreamdojo-world.github.io">Project page</a><a href="https://github.com/NVIDIA/DreamDojo">Code</a></div>
-<p class="desc">A foundation world model pretrained on 44k hours of egocentric human video that simulates dexterous, contact-rich robot interactions in real time.</p>
-</div></li>
+<p class="desc">A world model pretrained on 44k hours of egocentric human video that simulates dexterous, contact-rich robot interaction in real time.</p>
+<p class="plinks"><a href="https://arxiv.org/abs/2602.06949">Paper</a><a href="https://dreamdojo-world.github.io">Project</a><a href="https://github.com/NVIDIA/DreamDojo">Code</a></p>
+</article>
 
-<li><div class="fig"><video muted loop playsinline preload="none" poster="images/grape_poster.jpg" aria-label="GRAPE policy rollout in simulation"><source src="images/grape.mp4" type="video/mp4"></video></div>
-<div class="body">
-<p class="title">GRAPE: Generalizing Robot Policy via Preference Alignment</p>
-<p class="auth">Zijian Zhang†, <b>Kaiyuan Zheng†</b>, Zhaorun Chen†, Joel Jang, Yi Li, Siwei Han, Chaoqi Wang, Mingyu Ding, Dieter Fox, Huaxiu Yao</p>
-<div class="venue">ICRA 2026</div>
-<div class="plinks"><a href="https://arxiv.org/abs/2411.19309">Paper</a><a href="https://grape-vla.github.io">Project page</a><a href="https://github.com/aiming-lab/grape">Code</a></div>
-<p class="desc">Aligns vision-language-action policies with trajectory-wise preference optimization, improving generalization and supporting goals such as safety and efficiency.</p>
-</div></li>
-
-<li><div class="fig wide"><video muted loop playsinline preload="none" poster="images/dreamgen_poster.jpg" aria-label="DreamGen generated robot videos from text prompts"><source src="images/dreamgen.mp4" type="video/mp4"></video></div>
-<div class="body">
-<p class="title">DreamGen: Unlocking Generalization in Robot Learning through Video World Models</p>
+<article class="work">
+<div class="frame"><video muted loop playsinline preload="none" poster="images/dreamgen_poster.jpg" aria-label="DreamGen generated robot videos from text prompts"><source src="images/dreamgen.mp4" type="video/mp4"></video><span class="tag">DreamGen</span></div>
+<p class="meta">CoRL 2025</p>
+<h3>DreamGen: Unlocking Generalization in Robot Learning through Video World Models</h3>
 <p class="auth">Joel Jang, Seonghyeon Ye, Zongyu Lin, Jiannan Xiang, Johan Bjorck, Yu Fang, Fengyuan Hu, … <b>Kaiyuan Zheng</b>, Ruijie Zheng, … Yuke Zhu, Linxi Fan</p>
-<div class="venue">CoRL 2025</div>
-<div class="plinks"><a href="https://arxiv.org/abs/2505.12705">Paper</a><a href="https://research.nvidia.com/labs/gear/dreamgen">Project page</a></div>
-<p class="desc">Trains robot policies on synthetic trajectories generated by video world models, so they generalize to new behaviors and environments.</p>
-</div></li>
+<p class="desc">Robot policies trained on synthetic trajectories from video world models, so they generalize to new behaviors and environments.</p>
+<p class="plinks"><a href="https://arxiv.org/abs/2505.12705">Paper</a><a href="https://research.nvidia.com/labs/gear/dreamgen">Project</a></p>
+</article>
 
-<li><div class="fig"><video muted loop playsinline preload="none" poster="images/rebot_poster.jpg" aria-label="ReBot synthesized robot video"><source src="images/rebot.mp4" type="video/mp4"></video></div>
+</div>
+
+<div class="rows">
+<h2>Preference alignment and data synthesis</h2>
+
+<article class="row">
+<div class="plate"><img src="images/grape.jpg" alt="GRAPE pipeline figure" width="720" height="354" loading="lazy"></div>
 <div class="body">
-<p class="title">ReBot: Scaling Robot Learning with Real-to-Sim-to-Real Robotic Video Synthesis</p>
+<p class="meta">ICRA 2026</p>
+<h3>GRAPE: Generalizing Robot Policy via Preference Alignment</h3>
+<p class="auth">Zijian Zhang†, <b>Kaiyuan Zheng†</b>, Zhaorun Chen†, Joel Jang, Yi Li, Siwei Han, Chaoqi Wang, Mingyu Ding, Dieter Fox, Huaxiu Yao</p>
+<p class="desc">Aligns vision-language-action policies with trajectory-wise preference optimization, improving generalization and supporting goals such as safety and efficiency.</p>
+<p class="plinks"><a href="https://arxiv.org/abs/2411.19309">Paper</a><a href="https://grape-vla.github.io">Project</a><a href="https://github.com/aiming-lab/grape">Code</a></p>
+</div>
+</article>
+
+<article class="row">
+<div class="plate"><img src="images/rebot.jpg" alt="ReBot teaser figure" width="720" height="557" loading="lazy"></div>
+<div class="body">
+<p class="meta">IROS 2025 <span class="badge">Oral</span></p>
+<h3>ReBot: Scaling Robot Learning with Real-to-Sim-to-Real Robotic Video Synthesis</h3>
 <p class="auth">Yu Fang, Yue Yang, Xinghao Zhu, <b>Kaiyuan Zheng</b>, Gedas Bertasius, Daniel Szafir, Mingyu Ding</p>
-<div class="venue">IROS 2025 <span class="badge">Oral</span></div>
-<div class="plinks"><a href="https://arxiv.org/abs/2503.14526">Paper</a><a href="https://yuffish.github.io/rebot/">Project page</a></div>
 <p class="desc">Scales robot learning by synthesizing realistic robot videos through a real-to-sim-to-real pipeline.</p>
-</div></li>
+<p class="plinks"><a href="https://arxiv.org/abs/2503.14526">Paper</a><a href="https://yuffish.github.io/rebot/">Project</a></p>
+</div>
+</article>
 
-<li><div class="fig"><img src="images/anyprefer.jpg" alt="Anyprefer framework figure"></div>
+<article class="row">
+<div class="plate"><img src="images/anyprefer.jpg" alt="Anyprefer framework figure" width="720" height="349" loading="lazy"></div>
 <div class="body">
-<p class="title">Anyprefer: An Agentic Framework for Preference Data Synthesis</p>
+<p class="meta">ICLR 2025</p>
+<h3>Anyprefer: An Agentic Framework for Preference Data Synthesis</h3>
 <p class="auth">Yiyang Zhou, Zhaoyang Wang, Tianle Wang, Shangyu Xing, Peng Xia, Bo Li, <b>Kaiyuan Zheng</b>, Zijian Zhang, Zhaorun Chen, … Mohit Bansal, Huaxiu Yao</p>
-<div class="venue">ICLR 2025</div>
-<div class="plinks"><a href="https://arxiv.org/abs/2504.19276">Paper</a></div>
 <p class="desc">Synthesizes high-quality preference data by casting the target model and a tool-assisted judge model as players in a cooperative game.</p>
-</div></li>
+<p class="plinks"><a href="https://arxiv.org/abs/2504.19276">Paper</a></p>
+</div>
+</article>
 
-</ul>
+</div>
+</div>
 </section>
 </main>
 
-<footer id="contact"><div class="wrap">
-<span>Email: <a href="mailto:kaiyuan5@uw.edu">kaiyuan5@uw.edu</a></span>
-<span>Last updated: November 2026</span>
+<footer><div class="wrap">
+<span>Kaiyuan Zheng · <a href="mailto:kaiyuan5@uw.edu">kaiyuan5@uw.edu</a></span>
+<span>Updated November 2026</span>
 </div></footer>
+
 <script>
 (function(){
-  var vids=document.querySelectorAll('.fig video');
+  var vids=document.querySelectorAll('.frame video');
   var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(still||!('IntersectionObserver' in window)){vids.forEach(function(v){v.controls=true});return}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){})}else e.target.pause();
-  })},{threshold:.25});
+  })},{threshold:.4});
   vids.forEach(function(v){io.observe(v)});
 })();
 </script>
