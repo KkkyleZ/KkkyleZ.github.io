@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kaiyuan Zheng</title>
+<meta property="og:title" content="Kaiyuan Zheng">
+<meta property="og:description" content="PhD student at the University of Washington and NVIDIA GEAR Lab. Video world models and robot learning.">
+<meta property="og:image" content="https://kkkylez.github.io/images/kaiyuan.jpg">
+<meta property="og:url" content="https://kkkylez.github.io/">
 <meta name="description" content="Kaiyuan Zheng, PhD student in Electrical & Computer Engineering at the University of Washington. Video world models and robot learning.">
 <style>
 :root{--bg:#fff;--fg:#111;--muted:#5a5a5a;--line:#d9d9d9;--sunk:#f6f6f6;--accent:#2f6b00}
@@ -20,6 +24,9 @@ nav a{text-decoration:none}
 section{padding:40px 0 8px}
 h1{margin:0 0 6px;font-size:40px;line-height:1.15;letter-spacing:-.01em}
 h2{margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:24px}
+.about{display:flex;flex-wrap:wrap-reverse;gap:24px 48px;align-items:center}
+.bio{flex:1 1 520px;min-width:0}
+.photo{flex:0 0 180px;width:180px;height:180px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
 .sub{color:var(--muted);font-size:17px;margin:0 0 14px}
 .links{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:15px;font-weight:700;margin-top:14px}
 .links a{text-decoration:none}.links a:hover{text-decoration:underline}
@@ -32,6 +39,8 @@ h2{margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line);font-
 .pubs li{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-start}
 .fig{flex:0 0 220px;max-width:100%;aspect-ratio:16/10;border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden}
 .fig img{display:block;width:100%;height:100%;object-fit:contain}
+.fig video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.fig.wide{aspect-ratio:16/9}
 .body{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:6px}
 .title{margin:0;font-size:17px;font-weight:700;line-height:1.4}
 .auth,.desc{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
@@ -51,7 +60,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 </div></header>
 
 <main class="wrap">
-<section id="about">
+<section id="about" class="about">
+<div class="bio">
 <h1>Kaiyuan Zheng</h1>
 <p class="sub">PhD Student, Electrical &amp; Computer Engineering, University of Washington</p>
 <p>I am a PhD student in Electrical &amp; Computer Engineering at the <a href="https://www.ece.uw.edu">University of Washington</a>, advised by <a href="https://www.ece.uw.edu/people/radha-poovendran">Radha Poovendran</a> and <a href="https://people.ece.uw.edu/bushnell">Linda Bushnell</a>. I also received my B.S. and M.S. from UW. My research focuses on machine learning and multimodal systems, especially video world models and robot learning.</p>
@@ -60,9 +70,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <a href="mailto:kaiyuan5@uw.edu">Email</a>
 <a href="https://scholar.google.com/citations?user=6kkyR1wAAAAJ">Google Scholar</a>
 <a href="https://www.linkedin.com/in/kaiyuan-zheng-94984a236/">LinkedIn</a>
-<a href="https://openreview.net/profile?id=~Kaiyuan_Zheng1">OpenReview</a>
 <a href="https://github.com/KkkyleZ">GitHub</a>
 </div>
+</div>
+<img class="photo" src="images/kaiyuan.jpg" alt="Portrait of Kaiyuan Zheng" width="180" height="180">
 </section>
 
 <section id="news">
@@ -82,7 +93,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <p class="note">* core contributor, † co-first author, ‡ project lead</p>
 <ul class="pubs">
 
-<li><div class="fig"><img src="images/dreamzero.jpg" alt="DreamZero overview figure"></div>
+<li><div class="fig wide"><video muted loop playsinline preload="none" poster="images/dreamzero_poster.jpg" aria-label="DreamZero robots performing unseen tasks"><source src="images/dreamzero.mp4" type="video/mp4"></video></div>
 <div class="body">
 <p class="title">World Action Models are Zero-shot Policies</p>
 <p class="auth">Seonghyeon Ye‡, Yunhao Ge*, <b>Kaiyuan Zheng*</b>, Shenyuan Gao*, Sihyun Yu*, George Kurian*, Suneel Indupuru*, You Liang Tan*, … Yuke Zhu‡, Linxi Fan‡, Joel Jang‡</p>
@@ -91,7 +102,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <p class="desc">DreamZero, a 14B world action model that jointly predicts video and robot actions, generalizing zero-shot to unseen tasks and environments with real-time closed-loop control.</p>
 </div></li>
 
-<li><div class="fig"><img src="images/dreamdojo.jpg" alt="DreamDojo overview figure"></div>
+<li><div class="fig wide"><video muted loop playsinline preload="none" poster="images/dreamdojo_poster.jpg" aria-label="DreamDojo world model rollouts under action control"><source src="images/dreamdojo.mp4" type="video/mp4"></video></div>
 <div class="body">
 <p class="title">DreamDojo: A Generalist Robot World Model from Large-Scale Human Videos</p>
 <p class="auth">Shenyuan Gao†, William Liang†, <b>Kaiyuan Zheng*</b>, Ayaan Malik*, Seonghyeon Ye, Sihyun Yu, … Yuke Zhu‡, Joel Jang‡, Linxi Fan‡</p>
@@ -100,7 +111,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <p class="desc">A foundation world model pretrained on 44k hours of egocentric human video that simulates dexterous, contact-rich robot interactions in real time.</p>
 </div></li>
 
-<li><div class="fig"><img src="images/grape.jpg" alt="GRAPE pipeline figure"></div>
+<li><div class="fig"><video muted loop playsinline preload="none" poster="images/grape_poster.jpg" aria-label="GRAPE policy rollout in simulation"><source src="images/grape.mp4" type="video/mp4"></video></div>
 <div class="body">
 <p class="title">GRAPE: Generalizing Robot Policy via Preference Alignment</p>
 <p class="auth">Zijian Zhang†, <b>Kaiyuan Zheng†</b>, Zhaorun Chen†, Joel Jang, Yi Li, Siwei Han, Chaoqi Wang, Mingyu Ding, Dieter Fox, Huaxiu Yao</p>
@@ -109,7 +120,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <p class="desc">Aligns vision-language-action policies with trajectory-wise preference optimization, improving generalization and supporting goals such as safety and efficiency.</p>
 </div></li>
 
-<li><div class="fig"><img src="images/dreamgen.jpg" alt="DreamGen overview figure"></div>
+<li><div class="fig wide"><video muted loop playsinline preload="none" poster="images/dreamgen_poster.jpg" aria-label="DreamGen generated robot videos from text prompts"><source src="images/dreamgen.mp4" type="video/mp4"></video></div>
 <div class="body">
 <p class="title">DreamGen: Unlocking Generalization in Robot Learning through Video World Models</p>
 <p class="auth">Joel Jang, Seonghyeon Ye, Zongyu Lin, Jiannan Xiang, Johan Bjorck, Yu Fang, Fengyuan Hu, … <b>Kaiyuan Zheng</b>, Ruijie Zheng, … Yuke Zhu, Linxi Fan</p>
@@ -118,12 +129,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <p class="desc">Trains robot policies on synthetic trajectories generated by video world models, so they generalize to new behaviors and environments.</p>
 </div></li>
 
-<li><div class="fig"><img src="images/rebot.jpg" alt="ReBot teaser figure"></div>
+<li><div class="fig"><video muted loop playsinline preload="none" poster="images/rebot_poster.jpg" aria-label="ReBot synthesized robot video"><source src="images/rebot.mp4" type="video/mp4"></video></div>
 <div class="body">
 <p class="title">ReBot: Scaling Robot Learning with Real-to-Sim-to-Real Robotic Video Synthesis</p>
 <p class="auth">Yu Fang, Yue Yang, Xinghao Zhu, <b>Kaiyuan Zheng</b>, Gedas Bertasius, Daniel Szafir, Mingyu Ding</p>
 <div class="venue">IROS 2025 <span class="badge">Oral</span></div>
-<div class="plinks"><a href="https://arxiv.org/abs/2503.14526">Paper</a></div>
+<div class="plinks"><a href="https://arxiv.org/abs/2503.14526">Paper</a><a href="https://yuffish.github.io/rebot/">Project page</a></div>
 <p class="desc">Scales robot learning by synthesizing realistic robot videos through a real-to-sim-to-real pipeline.</p>
 </div></li>
 
@@ -144,5 +155,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 <span>Email: <a href="mailto:kaiyuan5@uw.edu">kaiyuan5@uw.edu</a></span>
 <span>Last updated: November 2026</span>
 </div></footer>
+<script>
+(function(){
+  var vids=document.querySelectorAll('.fig video');
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still||!('IntersectionObserver' in window)){vids.forEach(function(v){v.controls=true});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){var p=e.target.play();if(p&&p.catch)p.catch(function(){})}else e.target.pause();
+  })},{threshold:.25});
+  vids.forEach(function(v){io.observe(v)});
+})();
+</script>
 </body>
 </html>
