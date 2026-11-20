@@ -135,6 +135,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <section id="news" class="wrap">
 <h2>News</h2>
 <ul class="news">
+<li><time datetime="2026-10">Oct 2026</time><span>We released <a href="https://research.nvidia.com/labs/gear/flora/">FLORA</a>, an open model suite for scaling robotics data engines.</span></li>
 <li><time datetime="2026-09">Sep 2026</time><span><a href="https://dreamzero0.github.io">DreamZero</a> is accepted to CoRL 2026 as an <b>Oral</b>.</span></li>
 <li><time datetime="2026-04">Apr 2026</time><span><a href="https://dreamdojo-world.github.io">DreamDojo</a> is accepted to ICML 2026 as a <b>Spotlight</b>.</span></li>
 <li><time datetime="2026-02">Feb 2026</time><span>We released <a href="https://dreamzero0.github.io">DreamZero</a>, a 14B world action model, and <a href="https://dreamdojo-world.github.io">DreamDojo</a>, a robot world model pretrained on 44k hours of human video.</span></li>
@@ -146,7 +147,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <ul class="news">
 <li><time datetime="2025-08">Aug 2025</time><span><a href="https://research.nvidia.com/labs/gear/dreamgen">DreamGen</a> is accepted to CoRL 2025.</span></li>
 <li><time datetime="2025-06">Jun 2025</time><span><a href="https://yuffish.github.io/rebot/">ReBot</a> is accepted to IROS 2025 as an <b>Oral</b>.</span></li>
-<li><time datetime="2025-01">Jan 2025</time><span><a href="https://arxiv.org/abs/2504.19276">Anyprefer</a> is accepted to ICLR 2025.</span></li>
 </ul>
 </details>
 </section>
@@ -154,6 +154,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <section id="publications" class="wrap">
 <h2>Publications</h2>
 <p class="legend">* core contributor · † co-first author · ‡ project lead</p>
+
+<article class="row">
+<div class="frame"><video muted loop playsinline preload="none" poster="images/flora_poster.jpg" aria-label="FLORA captions and reward labels on human and robot videos"><source src="images/flora.mp4" type="video/mp4"></video></div>
+<div class="body">
+<p class="meta">arXiv 2026</p>
+<h3>FLORA: An Open Model Suite for Scaling Robotics Data Engines</h3>
+<p class="auth">Sicong Leng*, Yunze Man*, Zhiqi Li*, Jing Wang, Yuhe Zhang, Ryan Punamiya, Siddharth Patki, <b>Kaiyuan Zheng</b>, Zi-ang Cao, Zhiding Yu, Sifei Liu, Danfei Xu, Ben Levin, Jan Kautz, Yuke Zhu†, Johan Bjorck*†, Linxi “Jim” Fan† (here * equal contribution, † equal advising)</p>
+<p class="desc">An open suite of segmentation, captioning and reward models that labels human and robot video at scale, used to train GR00T models.</p>
+<p class="plinks"><a href="https://arxiv.org/abs/2610.31779">Paper</a><a href="https://research.nvidia.com/labs/gear/flora/">Project</a><a href="https://github.com/NVlabs/Flora">Code</a></p>
+</div>
+</article>
 
 <article class="row">
 <div class="frame"><video muted loop playsinline preload="none" poster="images/dreamzero_poster.jpg" aria-label="DreamZero robots performing unseen tasks"><source src="images/dreamzero.mp4" type="video/mp4"></video></div>
@@ -207,17 +218,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
 <p class="auth">Yu Fang, Yue Yang, Xinghao Zhu, <b>Kaiyuan Zheng</b>, Gedas Bertasius, Daniel Szafir, Mingyu Ding</p>
 <p class="desc">Scales robot learning by synthesizing realistic robot videos through a real-to-sim-to-real pipeline.</p>
 <p class="plinks"><a href="https://arxiv.org/abs/2503.14526">Paper</a><a href="https://yuffish.github.io/rebot/">Project</a></p>
-</div>
-</article>
-
-<article class="row">
-<div class="plate"><img src="images/anyprefer.jpg" alt="Anyprefer framework figure" width="720" height="349" loading="lazy"></div>
-<div class="body">
-<p class="meta">ICLR 2025</p>
-<h3>Anyprefer: An Agentic Framework for Preference Data Synthesis</h3>
-<p class="auth">Yiyang Zhou, Zhaoyang Wang, Tianle Wang, Shangyu Xing, Peng Xia, Bo Li, <b>Kaiyuan Zheng</b>, Zijian Zhang, Zhaorun Chen, … Mohit Bansal, Huaxiu Yao</p>
-<p class="desc">Synthesizes high-quality preference data by casting the target model and a tool-assisted judge model as players in a cooperative game.</p>
-<p class="plinks"><a href="https://arxiv.org/abs/2504.19276">Paper</a></p>
 </div>
 </article>
 
